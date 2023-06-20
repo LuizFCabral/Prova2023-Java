@@ -1,10 +1,12 @@
 package com.fatec.projetojava.resources;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,12 @@ public class EmpresaController {
     @Autowired
     private EmpresaService empresaService;
     
+    @GetMapping
+    public ResponseEntity<List<Empresa>> getEmpresas(){
+        List<Empresa> empresaes = empresaService.getEmpresas();
+        return ResponseEntity.ok().body(empresaes);
+    }
+
     @PostMapping
     public ResponseEntity<Empresa> saveEmpresa(@RequestBody Empresa empresa){
         Empresa empresaSalvo = empresaService.save(empresa);
