@@ -1,0 +1,1 @@
+insert into TBL_EMPRESA (nome, cidade, loc, ceo) values('Eucatex', 'Salto', 'R. Ribeirão Preto, 909 - Jardim Marilia', 'Jorge');
